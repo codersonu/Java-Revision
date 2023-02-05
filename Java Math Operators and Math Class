@@ -1,0 +1,410 @@
+Java contains a set of built-in math operators for performing simple math operations on Java variables. The Java math operators are reasonably simple. Therefore Java also contains the Java Math class which contains methods for performing more advanced math calculations in Java. This Java math tutorial will take a closer look at both Java's math operators as well as the Java Math class.
+
+Java Math Operators
+Let me first explain you the four basic math operators in Java. The Java math operators are:
+
+Math Operator	Description
++	Performs addition
+-	Performs subtraction
+*	Performs multiplication
+/	Performs division
+Each of these math operators will be explained in more detail in the following sections.
+
+Addition
+The + operator performs an addition of two values. This can be an addition of two constants, a constant and a variable, or a variable and a variable. Here are a few Java addition examples:
+
+int sum1 = 10 + 20;      // adding two constant values
+int sum2 = sum1 + 33;    // adding a variable and a constant
+int sum3 = sum2 + sum2;  // adding two variables
+The + operator will replace the two values with the sum of the two values at runtime. So at the place where the expression sum1 + 33 is written, at runtime this will be replaced with the sum of the value of sum1 and the constant value 33.
+
+You can of course create longer chains of additions and thus add more than two numbers. Here is a en example of adding 3 or more values together:
+
+int sum1 = 10 + 20 + 30;
+int sum3 = sum2 + 99 + 123 + 1191;
+A commonly used math operation on variables is to set the variable equal to its own value plus another value. Here is how that looks:
+
+int result = 10;
+result = result + 20;
+The second line of this example sets the sum variable equals to its own value (before being assigned the new value) + 20. Which means 10 + 20.
+
+Since adding a value to a variable is a very common operation, Java contains a built-in operator for that specific purpose. It is the += operator. Here is the example above rewritten to use the += operator:
+
+int result = 10;
+result += 20;
+The second line in this example adds 20 to the variable result. This equivalent to the code result = result + 20;
+
+Subtraction
+The - operator performs subtraction of one value from another. This can be a subtraction of a constant value from another constant value, a constant value from a variable, or a variable from a variable. Here are a few Java subtraction examples:
+
+int diff1 = 200 - 10;
+int diff2 = diff1 - 5;
+int diff3 = diff1 - diff2;
+The - operator will replace the two values with the difference between the two values, just like with the + operator.
+
+You can create longer chains of subtractions and thus subtract more values from each other. Here is an example of subtracting two values from another in a single Java statement:
+
+int diff = 200 - 10 - 20;
+This works for variables too.
+
+Remember, minus minus equals plus, just like in normal math. Here is an example of that:
+
+int diff = 200 - (-10);
+After executing this math expression the diff variable will contain the value 210 because - (-10) is equal to +10 according to standard math rules.
+
+Just like with addition, Java contains an operator specifically targeted at subtracting a value from a variable, and assigning the result to the variable. Here is first how that would look in Java without this operator:
+
+int result = 200;
+result = result - 10;
+Here is how the same math operation looks with the -= operator:
+
+int result = 200;
+result -= 10;
+Multiplication
+The * operator performs multiplication of two values. The values can be either two constant values, a variable and a constant value, or two variables. Here are a few Java multiplication examples:
+
+int prod1 = 10 * 20;
+int prod2 = prod1 * 5;
+int prod3 = prod1 * prod2;
+The * operator will replace the multiplication math expression with the product of the two values at runtime.
+
+You can create longer chains of multiplication using the * operator. Here is an example of multiplying 3 values with each other:
+
+int prod = 10 * 20 * 30;
+Multiplying a variable with a value and assigning the value back to the variable is a common math operation in Java applications. Therefore Java contains an explicit operator for this operation. The *= operator. Here is first how the calculation would look without the *= operator:
+
+int result = 10;
+result = result * 20;
+The second line of this example multiplies the value of the result variable (before being assigned the result of this calculation) with 20 and assigns the value back to the result variable.
+
+Here is how the same math operation looks with the += operator:
+
+int result = 10;
+result *= 20;
+Division
+The / operator performs division of one value by another. This can be dividing one constant with another, dividing a variable with a constant, or dividing one variable by another variable. Here are a few Java division examples:
+
+int division1 = 100 / 10;
+int division2 = division1 / 2;
+int division3 = division1 / division2;
+You can chain multiple values for division, but because of the Java math operator precedence (explained later) you have to pay attention to how you chain the values. Look at this division example:
+
+int division = 100 / 10 / 2;
+After executing this math expression the division variable will contain the value 5. That is the result because the math expression was calculated by first dividing 100 by 10 (= 10) and then 10 by 2 (=5). But, what if you had wanted to first divide the 10 by 2 (=5), and then divide the 100 by 5 (=20) ? You would have had to use parentheses to achieve that, like this:
+
+int division = 100 / (10 / 2)
+You will learn more about operator precedence and parentheses later in this Java math tutorial.
+
+Java also contains a shortcut operator for dividing the value of a variable by another value, and assigning that value back to the variable. The /= operator. Here is first how that math operation looks in Java without the /= operator:
+
+int result = 100;
+result = result / 5;
+The second line of this example divides the value of the result variable (the value it had before being assigned the result of this calculation) by 5, and assigns the result back to the result variable.
+
+Here is how the same math operation looks with the /= operator:
+
+int result = 100;
+result /= 5;
+Remainder / Modulo
+The remainder math operation performs an integer division of one value by another and returns the remained of that division. The remainder operation is also called the modulo operation. The operator for the remainder / modulo operation is the % (percentage) character. Here is a module operation example:
+
+int value    = 100;
+int remainder = value % 9;
+100 divided by 9 is 11 with a remainder of 1 (11 times 9 is 99). Thus, the remainder variable is assigned the value 1.
+
+Java also contains a shortcut operator for dividing a variable by another value and assigning the remainder of that division to the variable. The %= operator. Here is an example:
+
+int result = 100;
+result %= 9;
+The second line of this example will assign the value 1 to the result variable. 1 is the result of 100 % 9.
+
+Java Math Operator Precedence
+Once you start combining the Java math operators in math expressions it becomes important to control what calculations are to be executed when, in order to get the desired result. The Java math operators have a natural operator precedence which is similar to the precedence of standard math operators.
+
+The math operators * and / for multiplication and division takes precedence over the + and - operators. That means, that multiplications and divisions are evaluated before addition and subtraction in math expressions. In case there are multiple * and / operators they will be calculated from left to right. Look at this Java math expression:
+
+int result = 100 * 100 / 5 + 200 * 3 / 2;
+First the multiplications and divisions are executed. There are two groups of three multiplications and divisions. Each group is executed from left to right:
+
+100 * 100 = 10000;
+10000 / 5 = 2000;
+200 * 3 = 600;
+600 / 2 = 300;
+After calculating the multiplications and divisions the math expression looks like this:
+
+int result = 2000 + 300;
+Now the additions and subtractions are executed. The value assigned to the result variable is thus 2000 + 300 = 2300 .
+
+You can control the operator precedence and sequence of calculations in math expressions in Java using parentheses. Math expressions inside parentheses have higher precedence than any other operator. Therefore expressions inside parentheses are calculated first. Inside parentheses the normal operator precedence applies. Here is the math expression from earlier, but with parentheses inserted which change the calculation:
+
+int result = 100 * 100 / (5 + 200) * 3 / 2;
+The value 100 is still multiplied by 100 (= 10,000), but now it is divided by 5 + 200 (=205) instead of 5. After this division the result is multiplied by 3 and then divided by 2. The result of executing this math expression in Java is 72 (rounding of calculations affect the result).
+
+Java Integer Math
+Math operations performed on Java integer types (byte, short, int and long) behaves slightly different from how normal math operations work. Since Java integer types cannot contain fractions, each calculation involving one or more integer types have all fractions in the result cut off. Look at this math expression:
+
+int result = 100 / 8;
+The result of this division would be 12.5 , but since the two numbers are integers, the .5 fraction is cut off. The result is therefore just 12.
+
+The rounding also occurs in subresults of larger calculations, as you will learn in the next section about Java floating point math.
+
+Java Floating Point Math
+Java contains the two floating point data types float and double. These floating point types are capable of containing fractions in the numbers. If you need fractions in your math expressions you should use one of these data types. Here is a Java floating point math expression example:
+
+double result = 100 / 8;
+Even though the result variable is now a floating point type (double), the final result is still just 12 instead of 12.5 . The reason for that is that the two values in the math expression (100 and 8) are both integers. Thus, the result of dividing one by the other is first converted to an integer (12) before being assigned to the result variable.
+
+To avoid rounding of calculations in math expressions in Java you must make sure that all data types involved in the math expression are floating point types. For instance, you could first assign the values to floating point variables like this:
+
+double no1 = 100;
+double no2 = 8;
+
+double result = no1 / no2;
+Now the result variable would end up with the value 12.5.
+
+Java has a way to force all numbers in a calculation to be floating point variables. You suffix the numbers with either a capital F or D. Here is an example:
+
+double result = 100D / 8D;
+Notice the uppercase Ds after each number. This uppercase D tells Java that these numbers are to be interpreted as floating point numbers, and thus the division is supposed to be a floating point division which keeps fractions instead of cutting them off.
+
+You can actually also force a number to be a long by suffixing the number with an uppercase L, but long is still an integer type, so it will still not keep the fractions in calculations.
+
+Floating Point Precision
+Java floating point data types are not 100% precise. You can experience situations where numbers with many fractions on do not add up to the number you expected. If a floating point calculation results in a number with more fractions than a float or a double can handle, fractions may be cut off. Granted, the given precision may still more than enough for many types of calculations, but keep in mind that fractions may actually get cut off.
+
+Look at this Java floating point math code:
+
+double resultDbl3 = 0D;
+System.out.println("resultDbl3 = " + resultDbl3);
+
+for(int i=0; i<100; i++){
+    resultDbl3 += 0.01D;
+}
+System.out.println("resultDbl3 = " + resultDbl3);
+The output printed when executing this code with Java 8 is:
+
+resultDbl3 = 0.0
+resultDbl3 = 1.0000000000000007
+The first System.out.println() statement correctly prints the value 0.0 , which is the start value of the the resultDbl3 variable.
+
+The second System.out.println() statement however prints a somewhat strange result. Adding the value 0.01 to 0 a total of 100 times should result in the value 1.0, right? But somehow the final result is 1.0000000000000007 . As you can see, somehow something goes wrong way down in the fractions.
+
+Usually the Java floating point imprecision is insignificant, but it is still important to be aware of it.
+
+The Java Math Class
+The Java Math class provides more advanced mathematical calculations than what the basic Java math operators provide. The Math class contains methods for finding the maximum or minimum of two values, rounding values, logarithmic functions, square root, and trigonometric functions (sin, cos, tan etc.).
+
+The Math is located in the java.lang package, and not in the java.math package. Thus, the fully qualified class name of the Math class is java.lang.Math .
+
+Since many of the functions of the Math class are independent from each other, each method will be explained in its own section below.
+
+Basic Math Functions
+The java.lang.Math contains a set of basic math functions for obtaining the absolute value, highest and lowest of two values, rounding of values, random values etc. These basic math functions of the Java Math class will be covered in the following sections.
+
+Math.abs()
+The Math.abs() function returns the absolute value of the parameter passed to it. The absolute value is the positive value of the parameter. If the parameter value is negative, the negative sign is removed and the positive value corresponding to the negative value without sign is returned. Here are two Math.abs() method examples:
+
+int abs1 = Math.abs(10);  // abs1 = 10
+
+int abs2 = Math.abs(-20); // abs2 = 20
+The absolute value of 10 is 10. The absolute value of -20 is 20.
+
+The Math.abs() method is overloaded in 4 versions:
+
+Math.abs(int)
+Math.abs(long)
+Math.abs(float)
+Math.abs(double)
+Which of these methods are called depends on the type of the parameter passed to the Math.abs() method.
+
+Math.ceil()
+The Math.ceil() function rounds a floating point value up to the nearest integer value. The rounded value is returned as a double. Here is a Math.ceil() Java example:
+
+double ceil = Math.ceil(7.343);  // ceil = 8.0
+After executing this Java code the ceil variable will contain the value 8.0 .
+
+Math.floor()
+The Math.floor() function rounds a floating point value down to the nearest integer value. The rounded value is returned as a double. Here is a Math.floor() Java example:
+
+double floor = Math.floor(7.343);  // floor = 7.0
+After executing this Java code the floor variable will contain the value 7.0 .
+
+Math.floorDiv()
+The Math.floorDiv() method divides one integer (int or long) by another, and rounds the result down to the nearest integer value. If the result is positive, the effect is the same as using the Java / division operator described earlier in this text.
+
+If the result is negative, however, the result is not the same. With the / division operator the fractions are simply truncated. For positive numbers this corresponds to rounding down. For negative numbers though, truncating the fractions correspond to rounding up. The floorDiv() method rounds down to the nearest negative integer, instead of the rounding up that would occur with fraction truncation.
+
+Here is a Math.floorDiv() Java example:
+
+double result3 = Math.floorDiv(-100,9);
+System.out.println("result3: " + result3);
+
+double result4 = -100 / 9;
+System.out.println("result4: " + result4);
+The output printed from this Java code is:
+
+result3: -12.0
+result4: -11.0
+This shows the difference between the / division operator and Math.floorDiv() .
+
+Math.min()
+The Math.min() method returns the smallest of two values passed to it as parameter. Here is a Math.min() Java example:
+
+int min = Math.min(10, 20);
+After executing this code the min variable will contain the value 10.
+
+Math.max()
+The Math.max() method returns the largest of two values passed to it as parameter. Here is a Math.max() Java example:
+
+int max = Math.max(10, 20);
+After executing this code the max variable will contain the value 20.
+
+Math.round()
+The Math.round() method rounds a float or double to the nearest integer using normal math round rules (either up or down). Here is a Java Math.round() example:
+
+double roundedDown = Math.round(23.445);
+double roundedUp   = Math.round(23.545);
+After executing these two Java statements the roundedDown variable will contain the value 23.0 , and the roundedUp variable will contain the value 24.0.
+
+Math.random()
+The Math.random() method returns a random floating point number between 0 and 1. Of course the number is not fully random, but the result of some calculation which is supposed to make it as unpredictable as possible. Here is a Java Math.random() example:
+
+double random = Math.random();
+To get a random value between 0 and e.g. 100, multiply the value returned by Math.random() with the maximum number (e.g. 100). Here is an example of how that might look:
+
+double random = Math.random() * 100D;
+If you need an integer value, use the round(), floor() or ceil() method.
+
+Exponential and Logarithmic Math Functions
+The Java Math class also contains a set of functions intended for exponential and logarithmic calculations. I will cover some of these math functions in the following sections.
+
+Math.exp()
+The Math.exp() function returns e (Euler's number) raised to the power of the value provided as parameter. Here is a Java Math.exp() example:
+
+double exp1 = Math.exp(1);
+System.out.println("exp1 = " + exp1);
+
+double exp2 = Math.exp(2);
+System.out.println("exp2 = " + exp2);
+When this Java math code is executed it will print this output:
+
+exp1 = 2.718281828459045
+exp2 = 7.38905609893065
+Math.log()
+The Math.log() method provides the logarithm of the given parameter. The base for the logarithm is i (Euler's number). Thus, Math.log() provides the reverse function of Math.exp(). Here is a Java Math.log() example:
+
+double log1  = Math.log(1);
+System.out.println("log1 = " + log1);
+
+double log10 = Math.log(10);
+System.out.println("log10 = " + log10);
+The output from this Math.log() example is:
+
+log1 = 0.0
+log10 = 2.302585092994046
+Math.log10()
+The Math.log10 method works like the Math.log() method except is uses 10 as is base for calculating the logarithm instead of e (Euler's Number). Here is a Math.log10() Java example:
+
+double log10_1   = Math.log10(1);
+System.out.println("log10_1 = " + log10_1);
+
+double log10_100 = Math.log10(100);
+System.out.println("log10_100 = " + log10_100);
+The output printed from this Java Math.log10() example would be:
+
+log10_1 = 0.0
+log10_100 = 2.0
+Math.pow()
+The Math.pow() function takes two parameters. The method returns the value of the first parameter raised to the power of the second parameter. Here is a Math.pow() Java example:
+
+double pow2 = Math.pow(2,2);
+System.out.println("pow2 = " + pow2);
+
+double pow8 = Math.pow(2,8);
+System.out.println("pow8 = " + pow8);
+The output from this Math.pow() example would be:
+
+pow2 = 4.0
+pow8 = 256.0
+In other words, the Math.pow() example calculate the values of 22 and 28 which are 4 and 256.
+
+Math.sqrt()
+The Math.sqrt() method calculates the square root of the parameter given to it. Here are a few Java Math.sqrt() example:
+
+double sqrt4 = Math.sqrt(4);
+System.out.println("sqrt4 = " + sqrt4);
+
+double sqrt9 = Math.sqrt(9);
+System.out.println("sqrt9 = " + sqrt9);
+The output printed from these Java Math.sqrt() examples would be:
+
+sqrt4 = 2.0
+sqrt9 = 3.0
+Trigonometric Math Functions
+The Java Math class contains a set of trigonometric functions. These functions can calculate values used in trigonometry, like sine, cosine, tangens etc. I will cover the most used trigonometry functions in the following sections. If you are looking for a trigonometric function and you cannot find it here, check the JavaDoc for the Java Math class. The Math class just might have the function you are looking for, even if I have not described it here.
+
+Math.PI
+The Math.PI constant is a double with a value that is very close to the value of PI - the mathematical definition of PI. You will often need the Math.PI field when making trigonometric calculations.
+
+Math.sin()
+The Math.sin() method calculates the sine value of some angle value in radians. Here is a Java Math.sin() example:
+
+double sin = Math.sin(Math.PI);
+System.out.println("sin = " + sin);
+Math.cos()
+The Math.cos() method calculates the cosine value of some angle value in radians. Here is a Java Math.cos() example:
+
+double cos = Math.cos(Math.PI);
+System.out.println("cos = " + cos);
+Math.tan()
+The Math.tan() method calculates the tangens value of some angle value in radians. Here is a Java Math.tan() example:
+
+double tan = Math.tan(Math.PI);
+System.out.println("tan = " + tan);
+Math.asin()
+The Math.asin() method calculates the arc sine value of a value between 1 and -1. Here is a Java Math.asin() example:
+
+double asin = Math.asin(1.0);
+System.out.println("asin = " + asin);
+Math.acos()
+The Math.acos() method calculates the arc cosine value of a value between 1 and -1. Here is a Java Math.acos() example:
+
+double acos = Math.acos(1.0);
+System.out.println("acos = " + acos);
+Math.atan()
+The Math.atan() method calculates the arc tangens value of a value between 1 and -1. Here is a Java Math.atan() example:
+
+double atan = Math.atan(1.0);
+System.out.println("atan = " + atan);
+Math.atan2()
+I am not exactly sure what Math.atan2() method does mathematically. Here is what the JavaDoc says:
+
+"Returns the angle theta from the conversion of rectangular coordinates (x, y) to polar coordinates (r, theta)".
+
+If you need this method, please read the JavaDoc. But now you know at least that it exists.
+
+Math.sinh()
+The Math.sinh() method calculates the hyperbolic sine value of a value between 1 and -1. Here is a Java Math.sinh() example:
+
+double sinh = Math.sinh(1.0);
+System.out.println("sinh = " + sinh);
+Math.cosh()
+The Math.cosh() method calculates the hyperbolic cosine value of a value between 1 and -1. Here is a Java Math.cosh() example:
+
+double cosh = Math.cosh(1.0);
+System.out.println("cosh = " + cosh);
+Math.tanh()
+The Math.tanh() method calculates the hyperbolic tangens value of a value between 1 and -1. Here is a Java Math.tanh() example:
+
+double tanh = Math.tanh(1.0);
+System.out.println("tanh = " + tanh);
+Math.toDegrees()
+The Math.toDegrees() method converts an angle in radians to degrees. Here is a Java Math.toDegrees() example:
+
+double degrees = Math.toDegrees(Math.PI);
+System.out.println("degrees = " + degrees);
+Math.toRadians()
+The Math.toRadians() method converts an angle in degrees to radians. Here is a Java Math.toRadians() example:
+
+double radians = Math.toRadians(180);
+System.out.println("radians = " + radians);
